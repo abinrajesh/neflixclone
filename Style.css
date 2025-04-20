@@ -1,0 +1,1385 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 100;
+    src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Th.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 400;
+    src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Rg.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Netflix Sans';
+    font-weight: 700;
+    src: url('https://assets.nflxext.com/ffe/siteui/fonts/netflix-sans/v3/NetflixSans_W_Bd.woff2') format('woff2');
+}
+
+body {
+    font-family: 'Netflix Sans', sans-serif;
+    color: white;
+    font-size: 18px;
+    letter-spacing: 1px;
+    background-color: black;
+}
+
+li {
+    list-style-type: none;
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+
+}
+
+.background-container {
+    height: 160vh;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.background-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* shorthand for top: 0; right: 0; bottom: 0; left: 0; */
+    background-image: url(Assets/Banner/Banner.jpg);
+    background-size: cover;
+    filter: blur(18px);
+    background-position: center;
+    opacity: 0.5;
+    /* ✅ Only affects the background image */
+    z-index: -1;
+    /* Sends it behind the content */
+}
+
+.background-container::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 70%, rgba(0, 0, 0, 1));
+    z-index: 2;
+    pointer-events: none;
+}
+
+.overlay1 {
+    height: 100%;
+    width: 100%;
+    background: radial-gradient(92.16% 100% at 49.87% 0%, rgba(202, 14, 23, 0.815) 19.86%, rgba(0, 0, 0, 0) 100%);
+    position: absolute;
+}
+
+.overlay2 {
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 60%;
+    position: absolute;
+}
+
+.overlay3 {
+    width: 100%;
+    background: #252525;
+    opacity: 50%;
+    position: relative;
+}
+
+.nav-overlay {
+    height: 10vh;
+    width: 100%;
+    background-image: linear-gradient(black, transparent);
+    top: 0;
+    position: absolute;
+    z-index: 2;
+}
+
+.content-container {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    max-width: 95vw;
+    z-index: 3;
+    row-gap: 10px;
+}
+
+nav {
+    padding-bottom: 20px;
+}
+
+.nav-contents {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.languageAndSignIn {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+button {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    border-style: solid;
+    border-radius: 50px;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-btn {
+
+    padding: 5px 20px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    height: 33px;
+}
+
+.language-btn {
+    padding: 10px 10px;
+    font-weight: 700;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    gap: 5px;
+}
+
+.sign-in-btn {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    background-color: white;
+    color: black;
+    border: 1px solid white;
+}
+
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background-image: url(Assets/Banner/Banner.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-mask: url('Assets/SVG/Shape_1_netflix.svg') no-repeat center;
+    -webkit-mask-size: 100% 100%;
+    mask: url('Assets/SVG/Shape_1_netflix.svg') no-repeat center;
+    mask-size: 100% 100%;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+
+}
+
+.banner-overlay {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8), rgba(78, 77, 77, 0.733));
+}
+
+.banner-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    max-width: 700px;
+}
+
+.banner-heading h1 {
+    font-size: 4rem;
+    font-weight: 900;
+
+}
+
+.banner-container p {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+
+.banner-container h3 {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+.get-started form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.get-started input {
+    min-width: 348px;
+    height: 56px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(61, 61, 61);
+    border-radius: 50px;
+    padding: 0px 15px;
+    background-color: rgba(114, 114, 114, 0.701);
+    border: 1px solid rgb(114, 114, 114);
+    line-height: 1.5rem;
+
+}
+
+.get-started button {
+    font-size: 24px;
+    font-weight: 500;
+    min-width: 232px;
+    background-color: rgb(229, 9, 20);
+    border: none;
+    color: white;
+    height: 37px;
+    line-height: 1.5rem;
+    padding: 30px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+.second {
+    display: flex;
+    justify-content: center;
+}
+
+.second-container {
+    width: 80vw;
+
+}
+
+.carousel {
+    box-sizing: border-box;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 50px;
+}
+
+.carousel-content {
+    position: relative;
+    display: flex;
+    gap: 25px;
+    overflow: auto;
+    padding: 0 10px;
+}
+
+.carousel-container {
+    position: relative;
+    top: -55px;
+
+}
+
+.carousel-container span {
+    display: inline-block;
+    position: relative;
+    color: rgba(0, 0, 0, 0.8);
+    -webkit-text-stroke: 2px rgb(255, 255, 255);
+    text-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.5);
+}
+
+.carousel-container img {
+    border-radius: 20px;
+}
+
+.plans {
+    padding-bottom: 20px;
+}
+
+.plans-content {
+    display: inline-flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.planCard {
+    cursor: pointer;
+    margin-top: 20px;
+    border: 1px outset rgba(255, 255, 255, 0.562);
+    border-radius: 20px;
+    padding: 18px 39px;
+    box-sizing: border-box;
+}
+
+.planMobile {
+    background: linear-gradient(135deg, #0b2a4a, #130e1b);
+}
+
+.planMobile:hover {
+    background: linear-gradient(135deg, #1a3b7b, #140e1c);
+
+}
+
+.planBasic {
+    background: linear-gradient(135deg, #0b2a4a, #170e1c);
+}
+
+.planBasic:hover {
+    background: linear-gradient(135deg, #1c3e7f, #180e1d);
+
+}
+
+.planStandard {
+    background: linear-gradient(135deg, #872f81, #130e1c);
+
+}
+
+.planStandard:hover {
+    background: linear-gradient(135deg, #9b3fb2, #160e1d);
+
+}
+
+.planPremium {
+    background: linear-gradient(135deg, #992f52, #130e1c);
+
+}
+
+.planPremium:hover {
+    background: linear-gradient(135deg, #a33e68, #160e1d);
+
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 17px;
+
+}
+
+.mostPopularContainer {
+    position: relative;
+}
+
+.mostPopular {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    padding: 2px 8px;
+    display: flex;
+    justify-content: center;
+    border-radius: 0px 18px 0px 10px;
+    /* padding: 5px 10px; */
+}
+
+.mostPopular span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cardDescription {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.resolution {
+    color: rgba(255, 255, 255, 0.7);
+
+}
+
+.featureList li {
+    display: flex;
+    gap: 5px;
+    list-style-type: none;
+
+    color: rgba(255, 255, 255, 0.7)
+}
+
+.featureList li svg {
+    flex: none;
+    height: 21px;
+    width: 16px;
+}
+
+.cardPrice p {
+    color: rgba(255, 255, 255, 0.7);
+
+}
+
+.specifications {
+    padding-bottom: 20px;
+}
+
+.specificationsCards-Containers {
+    display: inline-flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.specCard {
+    backdrop-filter: blur(12px);
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: rgba(255, 255, 255, 0.1);
+    position: relative;
+    margin-top: 20px;
+    width: 411px;
+    height: 228px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    padding: 18px 39px;
+    box-sizing: border-box;
+}
+
+.specCardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.specCardBody h2 {
+    color: rgb(255, 255, 255);
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.specCardBody p {
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.svgContainer {
+    position: absolute;
+    bottom: 26px;
+    right: 23px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.svg {
+    width: 50px;
+    height: 50px;
+}
+
+.faqContainer {
+    margin-top: 20px;
+    padding-bottom: 50p;
+}
+
+.faqCard {
+    margin-top: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 100%;
+    color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faqCard:hover {
+    background-color: #3f3f3f;
+}
+
+.getStartedTwo {
+    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.getStartedTwo form h3 {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+}
+
+.getStartedTwoFormContainer {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.getStartedTwo input {
+    min-width: 348px;
+    height: 56px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: rgb(61, 61, 61);
+    border-radius: 50px;
+    padding: 0px 15px;
+    background-color: rgba(114, 114, 114, 0.701);
+    border: 1px solid rgb(114, 114, 114);
+    line-height: 1.5rem;
+}
+
+.getStartedTwo button {
+    font-size: 24px;
+    font-weight: 500;
+    min-width: 232px;
+    background-color: rgb(229, 9, 20);
+    color: white;
+    height: 37px;
+    line-height: 1.5rem;
+    padding: 30px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer {
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
+}
+
+.footerContainer {
+    width: 75vw;
+}
+
+.footerContainer span {
+    color: darkgray;
+}
+
+.footerContainer a {
+    color: darkgray;
+}
+
+.footerList {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 120px;
+    row-gap: 10px;
+    list-style: none;
+    padding: 30px 0;
+    margin: 0;
+    max-width: 1700px;
+}
+
+.footerList li a {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 10px;
+    margin-bottom: 16px;
+}
+
+.footer-rest {
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+.copyright {
+    padding-top: 50px;
+    font-size: 14px;
+    font-weight: 400;
+    color: darkgray;
+}
+
+
+
+
+
+/* Media quieies */
+/* 1.Mobile */
+
+@media (max-width: 599px) {
+
+    /* Container-adjustments */
+    .container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .background-container {
+        width: 100%;
+    }
+
+    .content-container {
+        width: 90%;
+    }
+
+    /* Nav-adjustments */
+    .logo {
+        background-image: url(Assets/Logos/n_logo.svg);
+        width: 20px;
+        height: 45px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .button-text {
+        display: none;
+    }
+
+    /* Banner-adjustments */
+    .banner-container {
+        width: 100%;
+        padding-top: 80px;
+    }
+
+    .banner-heading h1 {
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .banner-container p {
+        font-size: 16px;
+    }
+
+    .banner-container h3 {
+        font-size: 12px;
+    }
+
+    .get-started form {
+        flex-direction: column;
+    }
+
+    .get-started form input {
+        width: 90%;
+        height: 40px;
+
+    }
+
+    .get-started form button {
+        width: 96%;
+        padding: 23px 72px;
+    }
+
+    /* Second-section container adjustments */
+    .second {
+        width: 100%;
+    }
+
+    .second-container {
+        width: 100%;
+    }
+
+    /* Carousel-adjustments */
+    .carousel h2 {
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 20px;
+    }
+
+    .carousel-container span {
+        font-size: 46px;
+        top: 60px;
+    }
+
+    .carousel-container img {
+        width: 100px;
+    }
+
+    /* Subcription plan section adjsutments */
+    .plans-heading h2 {
+        font-size: 18px;
+    }
+
+    .plans-content {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+
+    .planCard {
+        width: 100%;
+    }
+
+    .planName {
+        font-size: 18px;
+    }
+
+    .resolution {
+        font-size: 18px;
+    }
+
+    .featureList li {
+        font-size: 14px;
+    }
+
+    .cardPrice p {
+        font-size: 18px;
+    }
+
+    /* Specifications section adjustments */
+    .specifications h2 {
+        font-size: 18px;
+    }
+
+    .specificationsCards-Containers {
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 0;
+    }
+
+    .specCard {
+        width: 100%;
+        height: 160px;
+    }
+
+    .specCardBody h2 {
+        font-size: 16px;
+    }
+
+    .specCardBody p {
+        font-size: 14px;
+    }
+
+    .svgContainer {
+        bottom: 20px;
+    }
+
+    /* FAQ section adjustments */
+    .faq h2 {
+        font-size: 18px;
+    }
+
+    .faqCard {
+        font-size: 14px;
+        padding: 20px 25px;
+    }
+
+    /* get started form adjustments */
+    .getStartedTwo h3 {
+        font-size: 16px;
+    }
+
+    .getStartedTwoFormContainer {
+        flex-direction: column;
+    }
+
+    /* Footer adjustments */
+    footer {
+        width: 100%;
+    }
+
+    .footerContainer {
+        width: 100%;
+    }
+
+    .footerContainer span {
+        font-size: 16px;
+    }
+
+    .footerList {
+        grid-template-columns: 1fr;
+    }
+
+    .footerList li a {
+        font-size: 14px;
+    }
+}
+
+/* Tablets */
+
+/* Potrait Mode */
+@media (min-width: 577px) and (max-width: 768px) {
+
+    /* Container-adjustments */
+    .container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .background-container {
+        width: 100%;
+    }
+
+    .content-container {
+        width: 90%;
+    }
+
+    /* Nav-adjustments */
+    .logo {
+        background-image: url(Assets/Logos/n_logo.svg);
+        width: 20px;
+        height: 45px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .button-text {
+        display: none;
+    }
+
+    /* Banner-adjustments */
+    .banner-container {
+        width: 100%;
+        padding-top: 80px;
+    }
+
+    .banner-heading h1 {
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .banner-container p {
+        font-size: 16px;
+    }
+
+    .banner-container h3 {
+        font-size: 12px;
+    }
+
+    .get-started form {
+        flex-direction: row;
+    }
+
+    .get-started form input {
+        width: 90%;
+        height: 40px;
+
+    }
+
+    .get-started form button {
+        width: 96%;
+        padding: 23px 72px;
+    }
+
+    /* Second-section container adjustments */
+    .second {
+        width: 100%;
+    }
+
+    .second-container {
+        width: 100%;
+    }
+
+    /* Carousel-adjustments */
+    .carousel h2 {
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 20px;
+    }
+
+    .carousel-container span {
+        font-size: 46px;
+        top: 60px;
+    }
+
+    .carousel-container img {
+        width: 100px;
+    }
+
+    /* Subcription plan section adjsutments */
+    .plans-heading h2 {
+        font-size: 18px;
+    }
+
+    .plans-content {
+        flex-wrap: wrap;
+        gap: 0;
+    }
+
+    .planCard {
+        width: 100%;
+    }
+
+    .planName {
+        font-size: 18px;
+    }
+
+    .resolution {
+        font-size: 18px;
+    }
+
+    .featureList li {
+        font-size: 14px;
+    }
+
+    .cardPrice p {
+        font-size: 18px;
+    }
+
+    /* Specifications section adjustments */
+    .specifications h2 {
+        font-size: 18px;
+    }
+
+    .specificationsCards-Containers {
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 0;
+    }
+
+    .specCard {
+        width: 100%;
+        height: 160px;
+    }
+
+    .specCardBody h2 {
+        font-size: 16px;
+    }
+
+    .specCardBody p {
+        font-size: 14px;
+    }
+
+    .svgContainer {
+        bottom: 20px;
+    }
+
+    /* FAQ section adjustments */
+    .faq h2 {
+        font-size: 18px;
+    }
+
+    .faqCard {
+        font-size: 14px;
+        padding: 20px 25px;
+    }
+
+    /* get started form adjustments */
+    .getStartedTwo h3 {
+        font-size: 16px;
+    }
+
+    .getStartedTwoFormContainer {
+        flex-direction: row;
+    }
+
+    /* Footer adjustments */
+    footer {
+        width: 100%;
+    }
+
+    .footerContainer {
+        width: 100%;
+    }
+
+    .footerContainer span {
+        font-size: 16px;
+    }
+
+    .footerList {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .footerList li a {
+        font-size: 14px;
+    }
+}
+
+/* Laptop */
+@media (min-width: 961px) and (max-width: 1279px) {
+
+    /* Container-adjustments */
+    .container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .background-container {
+        width: 100%;
+    }
+
+    .content-container {
+        width: 90%;
+    }
+
+    /* Nav-adjustments */
+    .logo {
+        background-image: url(Assets/Logos/Netflix_logo.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100px;
+        height: 40px;
+        ;
+    }
+
+    /* Banner-adjustments */
+    .banner-container {
+        width: 100%;
+        padding-top: 80px;
+        max-width: 664px;
+    }
+
+    .banner-heading h1 {
+        font-size: 48px;
+        font-weight: 600;
+    }
+
+    .banner-container p {
+        font-size: 18px;
+    }
+
+    .banner-container h3 {
+        font-size: 16px;
+    }
+
+    .get-started form {
+        flex-direction: row;
+    }
+
+    .get-started form input {
+        width: 90%;
+        height: 40px;
+        padding: 0 10px;
+    }
+
+    .get-started form button {
+        width: 50%;
+        padding: 23px 40px;
+    }
+
+    /* Second-section container adjustments */
+    .second {
+        width: 100%;
+    }
+
+    .second-container {
+        width: 100%;
+    }
+
+    /* Carousel-adjustments */
+    .carousel h2 {
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 20px;
+    }
+
+    .carousel-container span {
+        font-size: 64px;
+        top: 70px;
+    }
+
+    .carousel-container img {
+        width: 140px;
+    }
+
+    /* Subcription plan section adjsutments */
+    .plans-heading h2 {
+        font-size: 18px;
+    }
+
+    .plans-content {
+        gap: 10px;
+    }
+
+    .planCard {
+        width: 100%;
+        padding: 30px 15px 5px;
+    }
+
+    .planName {
+        font-size: 18px;
+    }
+
+    .resolution {
+        font-size: 18px;
+    }
+
+    .featureList li {
+        font-size: 14px;
+    }
+
+    .cardPrice p {
+        font-size: 18px;
+    }
+
+    /* Specifications section adjustments */
+    .specifications h2 {
+        font-size: 18px;
+    }
+
+    .specificationsCards-Containers {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .specCard {
+        height: 270px;
+        width: 100%;
+        padding: 30px 15px 0
+    }
+
+    .specCardBody h2 {
+        font-size: 16px;
+    }
+
+    .specCardBody p {
+        font-size: 14px;
+    }
+
+    .svgContainer {
+        bottom: 20px;
+    }
+
+    /* FAQ section adjustments */
+    .faq h2 {
+        font-size: 18px;
+    }
+
+    .faqCard {
+        font-size: 14px;
+        padding: 20px 25px;
+    }
+
+    /* get started form adjustments */
+    .getStartedTwo h3 {
+        font-size: 16px;
+    }
+
+    .getStartedTwoFormContainer {
+        flex-direction: row;
+    }
+
+    /* Footer adjustments */
+    footer {
+        width: 100%;
+    }
+
+    .footerContainer {
+        width: 100%;
+    }
+
+    .footerContainer span {
+        font-size: 16px;
+    }
+
+    .footerList {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .footerList li a {
+        font-size: 14px;
+    }
+}
+
+/* Desktops */
+@media (min-width: 1280px) {
+
+    /* Container-adjustments */
+    .container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .background-container {
+        width: 100%;
+    }
+
+    .content-container {
+        width: 90%;
+    }
+
+    /* Nav-adjustments */
+    .logo {
+        background-image: url(Assets/Logos/Netflix_logo.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100px;
+        height: 40px;
+        ;
+    }
+
+    /* Banner-adjustments */
+    .banner-container {
+        width: 100%;
+        padding-top: 80px;
+        max-width: 800px;
+    }
+
+    .banner-heading h1 {
+        font-size: 64px;
+        font-weight: 600;
+    }
+
+    .banner-container p {
+        font-size: 24px;
+    }
+
+    .banner-container h3 {
+        font-size: 16px;
+    }
+
+    .get-started form {
+        flex-direction: row;
+    }
+
+    .get-started form input {
+        width: 30%;
+        height: 40px;
+        padding: 0 10px;
+    }
+
+    .get-started form button {
+        width: 30%;
+        padding: 23px 40px;
+        font-weight: 600;
+    }
+
+    /* Second-section container adjustments */
+    .second {
+        width: 90%;
+        margin: auto;
+    }
+
+    .second-container {
+        width: 100%;
+    }
+
+    /* Carousel-adjustments */
+    .carousel h2 {
+        font-size: 18px;
+        font-weight: 600;
+        padding-bottom: 20px;
+    }
+
+    .carousel-container span {
+        top: 100px;
+        left: -15px;
+        font-size: 90px;
+        font-weight: 900;
+        line-height: 1;
+        height: 1em;
+    }
+
+    .carousel-container img {
+        width: 201px;
+    }
+
+    /* Subcription plan section adjsutments */
+    .plans-heading h2 {
+        font-size: 32px;
+    }
+
+    .plans-content {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .planCard {
+        width: 100%;
+        padding: 30px 25px 15px;
+    }
+
+    .planName {
+
+        font-size: 1.5rem;
+        font-weight: 600;
+
+    }
+
+    .resolution {
+        font-size: 1.125rem;
+        font-weight: 500;
+    }
+
+    .featureList li {
+        font-size: 14px;
+        line-height: 21px;
+    }
+
+    .cardPrice p {
+        font-size: 1.125rem;
+        font-weight: 500;
+    }
+
+    /* Specifications section adjustments */
+    .specifications h2 {
+        font-size: 32px;
+    }
+
+    .specificationsCards-Containers {
+        width: 100%;
+        gap: 10px;
+    }
+
+    .specCard {
+        height: 270px;
+        width: 100%;
+        padding: 30px 15px 0
+    }
+
+    .specCardBody h2 {
+        font-size: 16px;
+    }
+
+    .specCardBody p {
+        font-size: 14px;
+    }
+
+    .svgContainer {
+        bottom: 20px;
+    }
+
+    /* FAQ section adjustments */
+    .faq h2 {
+        font-size: 32px;
+    }
+
+    .faqCard {
+        font-size: 18px;
+        font-weight: 600;
+        padding: 30px 25px;
+    }
+
+    /* get started form adjustments */
+    .getStartedTwo h3 {
+        font-size: 16px;
+    }
+
+    .getStartedTwoFormContainer {
+        flex-direction: row;
+    }
+
+    /* Footer adjustments */
+    footer {
+        width: 90%;
+        margin: auto;
+    }
+
+    .footerContainer {
+        width: 100%;
+    }
+
+    .footerContainer span {
+        font-size: 16px;
+    }
+
+    .footerList {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .footerList li a {
+        font-size: 14px;
+    }
+}
