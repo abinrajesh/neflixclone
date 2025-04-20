@@ -2,7 +2,7 @@
 
 A simple, static clone of the Netflix landing page built using **HTML** and **CSS**. This project is part of my learning journey to master front-end development.
 ## Screenshot
-![Netflix Clone Screenshot](Assets/Screemshot.png)
+![Netflix Clone Screenshot](Assets/Screenshot.png)
 
 ## Live Demo
 [Watch Demo Video](Assets/Demo.mp4)
