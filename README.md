@@ -4,8 +4,11 @@ A simple, static clone of the Netflix landing page built using **HTML** and **CS
 ## Screenshot
 ![Netflix Clone Screenshot](Assets/Screenshot.png)
 
-## Live Demo
+## Demo Video
 [Watch Demo Video](Assets/Demo.mp4)
+
+## Live Site
+https://abinrajesh.github.io/neflixclone/
 
 ## Features
 
